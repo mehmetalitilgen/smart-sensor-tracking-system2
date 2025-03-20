@@ -55,18 +55,19 @@ yarn install
 docker-compose up -d
 ```
 
-4. Veritabanı migrasyonlarını çalıştırın:
+4. ortam değişkenlerini ayarlayın:
+```bash
+cp .env.example .env
+# .env dosyasını düzenleyin
+```
+
+5. Veritabanı migrasyonlarını çalıştırın:
 ```bash
 # PostgreSQL migration
 npx prisma migrate dev
 
 # InfluxDB bucket oluşturma
 influx bucket create -n sensor_data -o your-org -r 0
-```
-4. ortam değişkenlerini ayarlayın:
-```bash
-cp .env.example .env
-# .env dosyasını düzenleyin
 ```
 
 6. Geliştirme sunucusunu başlatın:

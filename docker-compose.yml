@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  dev-db:
+    image: postgres:13
+    container_name: dev-db
+    ports:
+      - 5436:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - patrion
+
+  test-db:
+    image: postgres:13
+    container_name: test-db
+    ports:
+      - 5437:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - patrion
+
+  mqtt-broker:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - 8883:8883   
+      - 9001:9001   
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/certs:/mosquitto/certs
+    networks:
+      - patrion
+    restart: unless-stopped
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin123
+      - DOCKER_INFLUXDB_INIT_ORG=nestjs-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=sensordata
+    volumes:
+      - ./influxdb:/var/lib/influxdb2
+    networks:
+      - patrion
+    restart: unless-stopped
+
+  influxdb-test:
+    image: influxdb:2.7
+    container_name: influxdb-test
+    ports:
+      - 8087:8086
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin123
+      - DOCKER_INFLUXDB_INIT_ORG=nestjs-test-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=sensordata-test
+    volumes:
+      - ./influxdb-test:/var/lib/influxdb2
+    networks:
+      - patrion
+    restart: unless-stopped
+
+networks:
+  patrion:

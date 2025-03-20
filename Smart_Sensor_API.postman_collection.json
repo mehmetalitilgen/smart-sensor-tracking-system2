@@ -1,0 +1,442 @@
+{
+  "info": {
+    "name": "Smart Sensor API",
+    "description": "Akıllı Sensör Takip Sistemi API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "register"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"strongPassword123\",\n    \"role\": \"USER\",\n    \"companyId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"strongPassword123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/create-user",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "create-user"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"New User\",\n    \"email\": \"newuser@example.com\",\n    \"password\": \"password123\",\n    \"role\": \"USER\",\n    \"companyId\": 1\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "Create Company",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/company",
+              "host": ["{{baseUrl}}"],
+              "path": ["company"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Test Company\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Companies",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/company",
+              "host": ["{{baseUrl}}"],
+              "path": ["company"]
+            }
+          }
+        },
+        {
+          "name": "Get Company by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/company/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["company", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Company",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/company/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["company", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Company\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Company",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/company/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["company", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sensor Data",
+      "item": [
+        {
+          "name": "Create Sensor Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sensor-data",
+              "host": ["{{baseUrl}}"],
+              "path": ["sensor-data"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"sensorId\": \"sensor1\",\n    \"temperature\": 25.5,\n    \"humidity\": 60,\n    \"timestamp\": 1710921600\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Sensor Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sensor-data",
+              "host": ["{{baseUrl}}"],
+              "path": ["sensor-data"]
+            }
+          }
+        },
+        {
+          "name": "Get Sensor Data by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sensor-data/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sensor-data", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Sensor Data by Range",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sensor-data/range?startTime=1710921600&endTime=1711007999&sensorId=sensor1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sensor-data", "range"],
+              "query": [
+                {
+                  "key": "startTime",
+                  "value": "1710921600"
+                },
+                {
+                  "key": "endTime",
+                  "value": "1711007999"
+                },
+                {
+                  "key": "sensorId",
+                  "value": "sensor1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Sensor Data",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sensor-data/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sensor-data", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Log View",
+      "item": [
+        {
+          "name": "Create Log View",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/log-view",
+              "host": ["{{baseUrl}}"],
+              "path": ["log-view"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userId\": 1,\n    \"action\": \"viewed_logs\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Log Views",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/log-view",
+              "host": ["{{baseUrl}}"],
+              "path": ["log-view"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "MQTT",
+      "item": [
+        {
+          "name": "Get MQTT Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mqtt/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["mqtt", "status"]
+            }
+          }
+        },
+        {
+          "name": "Publish MQTT Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mqtt/publish",
+              "host": ["{{baseUrl}}"],
+              "path": ["mqtt", "publish"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"sensor_id\": \"sensor1\",\n    \"temperature\": 25.5,\n    \"humidity\": 60,\n    \"timestamp\": 1710921600\n}"
+            }
+          }
+        },
+        {
+          "name": "Subscribe to MQTT Topic",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mqtt/subscribe?topic=sensors/data",
+              "host": ["{{baseUrl}}"],
+              "path": ["mqtt", "subscribe"],
+              "query": [
+                {
+                  "key": "topic",
+                  "value": "sensors/data"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Check API Health",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3333"
+    },
+    {
+      "key": "token",
+      "value": "your-jwt-token"
+    }
+  ]
+} 

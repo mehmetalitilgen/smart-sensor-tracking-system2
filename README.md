@@ -63,8 +63,13 @@ npx prisma migrate dev
 # InfluxDB bucket oluşturma
 influx bucket create -n sensor_data -o your-org -r 0
 ```
+4. ortam değişkenlerini ayarlayın:
+```bash
+cp .env.example .env
+# .env dosyasını düzenleyin
+```
 
-5. Geliştirme sunucusunu başlatın:
+6. Geliştirme sunucusunu başlatın:
 ```bash
 # npm ile
 npm run start:dev

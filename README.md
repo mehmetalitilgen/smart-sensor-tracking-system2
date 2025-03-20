@@ -37,7 +37,7 @@ Akıllı Sensör Takip Sistemi, sensör verilerini gerçek zamanlı olarak izlem
 
 1. Projeyi klonlayın:
 ```bash
-git clone https://github.com/mehmetalitilgen/smart-sensor-tracking-system.git2
+https://github.com/mehmetalitilgen/smart-sensor-tracking-system2.git
 cd smart-sensor-tracking-system
 ```
 

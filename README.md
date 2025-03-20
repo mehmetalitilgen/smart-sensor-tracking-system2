@@ -57,11 +57,11 @@ docker-compose up -d
 
 4. Veritabanı migrasyonlarını çalıştırın:
 ```bash
-# npm ile
-npm run prisma:migrate
+# PostgreSQL migration
+npx prisma migrate dev
 
-# veya yarn ile
-yarn prisma:migrate
+# InfluxDB bucket oluşturma
+influx bucket create -n sensor_data -o your-org -r 0
 ```
 
 5. Geliştirme sunucusunu başlatın:

@@ -243,4 +243,4 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 Proje Sahibi - [@mehmetalitilgen](https://github.com/mehmetalitilgen)
 
-Proje Linki: [https://github.com/mehmetalitilgen/smart-sensor-tracking-system](https://github.com/mehmetalitilgen/smart-sensor-tracking-system)
+Proje Linki: [https://github.com/mehmetalitilgen/smart-sensor-tracking-system2](https://github.com/mehmetalitilgen/smart-sensor-tracking-system2)

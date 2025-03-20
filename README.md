@@ -220,17 +220,9 @@ API endpoint'leri ve kullanımları için Postman collection'ı `Smart_Sensor_AP
 ## Test
 
 ```bash
-# Unit testler
-npm run test
-yarn test
-
 # E2E testler
 npm run test:e2e
 yarn test:e2e
-
-# Test coverage
-npm run test:cov
-yarn test:cov
 ```
 
 ## Katkıda Bulunma

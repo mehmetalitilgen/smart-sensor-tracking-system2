@@ -11,7 +11,7 @@ export class SensorDataController {
   constructor(private sensorDataService: SensorDataService) {}
 
   @Post()
-  createSensorData(@Body() data: any) {
+  createSensorData(@Body() data: CreateSensorDataDto ) {
     return this.sensorDataService.createSensorData(data);
   }
 

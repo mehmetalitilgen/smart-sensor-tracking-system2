@@ -2,6 +2,7 @@ import { Controller, Get, Post, Delete, Param, Query, Body, UseGuards } from '@n
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { SensorDataService } from './sensor-data.service';
 import { JwtAuthGuard } from '../auth/guards';
+import { CreateSensorDataDto } from './dto/create-sensor-data.dto';
 
 @ApiTags('Sensor Data')
 @ApiBearerAuth()
